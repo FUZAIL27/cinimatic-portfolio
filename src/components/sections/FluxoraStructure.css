@@ -1,0 +1,374 @@
+/* Fluxora Structure Mode — Exact Ember Palette & Warm Horizon Typography */
+.fluxora-root {
+  --ground: #2a0b02;
+  --ground-deep: #120400;
+  --ink: #ffffff;
+  --ink-soft: rgba(255, 255, 255, 0.72);
+  --ink-faint: rgba(255, 255, 255, 0.46);
+  --flame: #ff3d00;
+  --flame-lit: #ff8a1f;
+  --glass: rgba(56, 20, 6, 0.42);
+  --hair: rgba(255, 255, 255, 0.14);
+  --hair-soft: rgba(255, 255, 255, 0.08);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --font-display: 'Inter Tight', 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-italic: 'Instrument Serif', Georgia, serif;
+}
+
+/* Background Media & Scrim */
+.fluxora-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Fuzail Ahmed Cinematic AR Visor Character Background */
+.fluxora-fuzail-character {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 64% 38%;
+  filter: contrast(1.06) brightness(1.0);
+  transform: scale(1.015);
+  animation: fluxoraHeroBreathe 16s ease-in-out infinite alternate;
+  transition: opacity 0.8s ease-out;
+  will-change: transform;
+}
+
+@keyframes fluxoraHeroBreathe {
+  0% {
+    transform: scale(1.015) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.045) translate(-6px, -3px);
+  }
+  100% {
+    transform: scale(1.015) translate(0, 0);
+  }
+}
+
+/* Robotic Character Hero Presentation */
+.robot-hero-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  animation: robotBreathing 12s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes robotBreathing {
+  0% {
+    transform: scale(1.0) translateY(0);
+  }
+  50% {
+    transform: scale(1.02) translateY(-8px);
+  }
+  100% {
+    transform: scale(1.0) translateY(0);
+  }
+}
+
+/* Electric-Blue Visor Glow Effect */
+.robot-visor-electric-glow {
+  position: absolute;
+  top: 17%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 48px;
+  background: radial-gradient(ellipse at center, rgba(0, 229, 255, 0.95) 0%, rgba(0, 162, 255, 0.45) 50%, transparent 80%);
+  filter: blur(14px);
+  border-radius: 999px;
+  animation: electricVisorPulse 3s ease-in-out infinite alternate;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+@keyframes electricVisorPulse {
+  0% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(0.92);
+  }
+}
+
+/* Orange Chest Emblem Glow Effect */
+.robot-chest-emblem-glow {
+  position: absolute;
+  top: 44%;
+  left: 58%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 90px;
+  background: radial-gradient(ellipse at center, rgba(255, 106, 0, 0.9) 0%, rgba(255, 69, 0, 0.35) 50%, transparent 80%);
+  filter: blur(18px);
+  border-radius: 50%;
+  animation: chestEmblemPulse 4s ease-in-out infinite alternate;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+@keyframes chestEmblemPulse {
+  0% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+  100% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+}
+
+/* Glassmorphism Stat Cards with Corner Arrow */
+.fluxora-stat-card {
+  position: relative;
+  min-width: 175px;
+  min-height: 122px;
+  padding: 1.15rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(30, 10, 4, 0.48);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 15px 35px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fluxora-stat-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 106, 0, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 20px 45px rgba(255, 85, 0, 0.22);
+}
+
+@keyframes visorPulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+.fluxora-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 68% center;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1.1s var(--ease-out), transform 2.4s var(--ease-out);
+}
+.fluxora-video.is-ready {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fluxora-media-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 64% 38%;
+  filter: contrast(1.08) brightness(0.98);
+}
+
+.fluxora-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(96deg, rgba(10, 3, 0, 0.94) 0%, rgba(14, 4, 0, 0.72) 34%, rgba(20, 6, 0, 0.22) 56%, rgba(20, 6, 0, 0) 74%),
+    linear-gradient(0deg, rgba(9, 2, 0, 0.85) 0%, rgba(9, 2, 0, 0.15) 28%, rgba(0, 0, 0, 0) 48%),
+    linear-gradient(180deg, rgba(8, 2, 0, 0.6) 0%, rgba(0, 0, 0, 0) 24%);
+  pointer-events: none;
+}
+
+.fluxora-rules {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30%;
+  pointer-events: none;
+}
+.fluxora-rules span {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.055);
+}
+.fluxora-rules span:nth-child(2) {
+  margin-left: 14px;
+}
+
+/* Animated Diagonal Meteor Streaks */
+@keyframes meteorStream {
+  0% {
+    transform: translate(120px, -120px) rotate(-42deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-380px, 380px) rotate(-42deg);
+    opacity: 0;
+  }
+}
+
+.meteor-streak {
+  position: absolute;
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(255, 138, 31, 0.85), rgba(255, 255, 255, 0.9), transparent);
+  filter: drop-shadow(0 0 4px #ff8a1f);
+  border-radius: 999px;
+  animation: meteorStream 5s linear infinite;
+  pointer-events: none;
+}
+
+/* Typographic Entrance Animation */
+@keyframes fluxoraRise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fluxora-anim-note {
+  animation: fluxoraRise 0.95s var(--ease-out) both;
+  animation-delay: 0.04s;
+}
+.fluxora-anim-title {
+  animation: fluxoraRise 0.95s var(--ease-out) both;
+  animation-delay: 0.08s;
+}
+.fluxora-anim-sub {
+  animation: fluxoraRise 0.95s var(--ease-out) both;
+  animation-delay: 0.16s;
+}
+.fluxora-anim-cta {
+  animation: fluxoraRise 0.95s var(--ease-out) both;
+  animation-delay: 0.22s;
+}
+.fluxora-anim-stats {
+  animation: fluxoraRise 0.95s var(--ease-out) both;
+  animation-delay: 0.28s;
+}
+.fluxora-anim-ghost {
+  animation: fluxoraRise 0.95s var(--ease-out) both;
+  animation-delay: 0.32s;
+}
+.fluxora-anim-foot {
+  animation: fluxoraRise 0.95s var(--ease-out) both;
+  animation-delay: 0.38s;
+}
+
+
+
+/* Holographic Pipeline Animations */
+@keyframes pipelineFlow {
+  0% {
+    left: -10%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+.robot-transparent-character {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: contrast(1.08) drop-shadow(0 20px 50px rgba(0, 0, 0, 0.95));
+  will-change: transform;
+}
+
+
+/* Natural Mechanical Robot Breathing & Welcoming Gesture */
+@keyframes robotBreathingMechanical {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes subtleGreetingWave {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  20% {
+    transform: translateY(-4px) rotate(1.2deg);
+  }
+  40% {
+    transform: translateY(-1px) rotate(-0.8deg);
+  }
+  60% {
+    transform: translateY(-3px) rotate(1deg);
+  }
+  80% {
+    transform: translateY(0px) rotate(-0.4deg);
+  }
+}
+
+
+/* Natural Welcome Hand Animation Sequence */
+@keyframes robotNaturalHandWave {
+  0% {
+    transform: rotate(0deg);
+  }
+  18% {
+    transform: rotate(5.5deg);
+  }
+  36% {
+    transform: rotate(-4deg);
+  }
+  54% {
+    transform: rotate(5deg);
+  }
+  72% {
+    transform: rotate(-3deg);
+  }
+  90% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes holographicTextEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
