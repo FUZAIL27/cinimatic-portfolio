@@ -211,7 +211,7 @@ export const PORTFOLIO_DATA = {
       tech: ['MERN', 'Node.js', 'Express.js', 'MongoDB', 'AI APIs', 'PPTX Generation', 'React'],
       liveUrl: 'https://frontend-pink-omega-38.vercel.app/',
       githubUrl: 'https://github.com/FUZAIL27',
-      image: '/src/assets/images/fuzail-hero.webp',
+      image: '/images/fuzail-hero.webp',
       featured: true,
       category: 'AI & Web',
       details: {
@@ -242,7 +242,7 @@ export const PORTFOLIO_DATA = {
       tech: ['React', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'TanStack Query', 'Zustand', 'Tailwind CSS'],
       liveUrl: 'https://audit-dashboard12.vercel.app/',
       githubUrl: 'https://github.com/FUZAIL27/audit-dashboard.git',
-      image: '/src/assets/images/fuzail-hero.webp',
+      image: '/images/fuzail-hero.webp',
       featured: true,
       category: 'Enterprise & Cloud',
       details: {
@@ -273,7 +273,7 @@ export const PORTFOLIO_DATA = {
       tech: ['React', 'Node.js', 'Express.js', 'AI APIs', 'Vector Context', 'Document Processing', 'Tailwind CSS'],
       liveUrl: 'https://doc-ai-flax.vercel.app/',
       githubUrl: 'https://github.com/FUZAIL27/Doc-Ai.git',
-      image: '/src/assets/images/fuzail-about.jpg',
+      image: '/images/fuzail-about.jpg',
       featured: true,
       category: 'AI & Web',
       details: {
@@ -304,7 +304,7 @@ export const PORTFOLIO_DATA = {
       tech: ['Java', 'Spring Boot', 'Hibernate/JPA', 'REST APIs', 'MySQL / PostgreSQL', 'React', 'JWT Security'],
       liveUrl: 'https://international-real-estate-full-mu.vercel.app/',
       githubUrl: 'https://github.com/FUZAIL27/International-real-estate-full.git',
-      image: '/src/assets/images/fuzail-profile.jpg',
+      image: '/images/fuzail-profile.jpg',
       featured: true,
       category: 'Java & Spring Boot',
       details: {
@@ -335,7 +335,7 @@ export const PORTFOLIO_DATA = {
       tech: ['Java', 'Spring Boot', 'Angular', 'TypeScript', 'MySQL', 'PrimeNG', 'REST APIs', 'Microservices', 'Docker'],
       liveUrl: '',
       githubUrl: '',
-      image: '/src/assets/images/fuzail-hero.webp',
+      image: '/images/fuzail-hero.webp',
       featured: true,
       category: 'Enterprise ERP Development',
       isPrivate: true,
@@ -436,7 +436,7 @@ export const PORTFOLIO_DATA = {
       tech: ['React', 'TypeScript', 'Tailwind CSS', 'Chart.js', 'Zustand', 'REST APIs'],
       liveUrl: 'https://pulse-social-dashboard-chi.vercel.app/',
       githubUrl: 'https://github.com/FUZAIL27/pulse--Social-Dashboard.git',
-      image: '/src/assets/images/fuzail-profile.jpg',
+      image: '/images/fuzail-profile.jpg',
       featured: true,
       category: 'Enterprise & Cloud',
       details: {
@@ -466,7 +466,7 @@ export const PORTFOLIO_DATA = {
       tech: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'Bootstrap'],
       liveUrl: 'https://adventure-tourism2.vercel.app/',
       githubUrl: 'https://github.com/FUZAIL27/Adventure_Tourism2.git',
-      image: '/src/assets/images/fuzail-about.jpg',
+      image: '/images/fuzail-about.jpg',
       featured: true,
       category: 'AI & Web',
       details: {

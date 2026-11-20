@@ -89,19 +89,22 @@ export const PersonalPhotoCube: React.FC = () => {
   // Track whether the user explicitly clicked a mode tab button
   const userManuallyChangedMode = useRef(false);
 
-  // Default to 'cube' on mobile & tablet devices (< 1024px), 'lookbook' on desktop
+  // Default to 'cube' on mobile & tablet devices (< 1024px), 'lookbook' on desktop (>= 1024px)
   const [displayMode, setDisplayMode] = useState<'cube' | 'lookbook'>(() => {
     if (typeof window !== 'undefined') {
-      return window.innerWidth < 1024 ? 'cube' : 'lookbook';
+      const isMobileOrTablet =
+        window.innerWidth < 1024 || ('ontouchstart' in window && window.innerWidth < 1200);
+      return isMobileOrTablet ? 'cube' : 'lookbook';
     }
-    return 'lookbook';
+    return 'cube';
   });
 
   // Responsive device check: ensure mobile and tab devices default to 'cube'
   useEffect(() => {
     const handleDeviceCheck = () => {
       if (userManuallyChangedMode.current) return;
-      const isMobileOrTablet = window.innerWidth < 1024;
+      const isMobileOrTablet =
+        window.innerWidth < 1024 || ('ontouchstart' in window && window.innerWidth < 1200);
       setDisplayMode(isMobileOrTablet ? 'cube' : 'lookbook');
     };
 

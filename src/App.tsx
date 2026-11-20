@@ -1,12 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { EnvironmentContainer } from './components/3d/EnvironmentContainer';
 import { Navbar } from './components/common/Navbar';
 import { CustomCursor } from './components/common/CustomCursor';
 import { ScrollProgress } from './components/common/ScrollProgress';
 import { LoadingScreen } from './components/common/LoadingScreen';
-import { EasterEggModal } from './components/common/EasterEggModal';
-import { ProjectModal } from './components/common/ProjectModal';
-import { ResumeModal } from './components/common/ResumeModal';
 import { ExperienceModeSelector } from './components/common/ExperienceModeSelector';
 import { HeroSection } from './components/sections/HeroSection';
 import { AboutSection } from './components/sections/AboutSection';
@@ -22,6 +19,17 @@ import { useScrollProgress } from './hooks/useScrollProgress';
 import { useAudio } from './hooks/useAudio';
 import { ExperienceModeProvider, useExperienceMode } from './context/ExperienceModeContext';
 import type { ProjectItem } from './data/portfolioData';
+
+// Code-split heavy interactive modals so they are loaded on-demand
+const EasterEggModal = lazy(() =>
+  import('./components/common/EasterEggModal').then((m) => ({ default: m.EasterEggModal }))
+);
+const ProjectModal = lazy(() =>
+  import('./components/common/ProjectModal').then((m) => ({ default: m.ProjectModal }))
+);
+const ResumeModal = lazy(() =>
+  import('./components/common/ResumeModal').then((m) => ({ default: m.ResumeModal }))
+);
 
 function PortfolioContent() {
   const [isLoading, setIsLoading] = useState(true);
@@ -154,21 +162,29 @@ function PortfolioContent() {
         }}
       />
 
-      {/* 9. Modals */}
-      <EasterEggModal
-        isOpen={isEasterEggOpen}
-        onClose={() => setIsEasterEggOpen(false)}
-      />
+      {/* 9. Modals (Lazy Loaded on Demand) */}
+      <Suspense fallback={null}>
+        {isEasterEggOpen && (
+          <EasterEggModal
+            isOpen={isEasterEggOpen}
+            onClose={() => setIsEasterEggOpen(false)}
+          />
+        )}
 
-      <ResumeModal
-        isOpen={isResumeOpen}
-        onClose={() => setIsResumeOpen(false)}
-      />
+        {isResumeOpen && (
+          <ResumeModal
+            isOpen={isResumeOpen}
+            onClose={() => setIsResumeOpen(false)}
+          />
+        )}
 
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+        {selectedProject && (
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        )}
+      </Suspense>
     </div>
   );
 }

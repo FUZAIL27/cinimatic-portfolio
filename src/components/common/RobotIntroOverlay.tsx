@@ -169,6 +169,7 @@ export const RobotIntroOverlay: React.FC<RobotIntroOverlayProps> = ({
             )}
           </button>
 
+
           {/* Replay Button */}
           <button
             onClick={onReplay}

@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { useExperienceMode } from '../../context/ExperienceModeContext';
 import { CinematicEnvironment } from './CinematicEnvironment';
-import { ProfessionalEnvironment } from './ProfessionalEnvironment';
-import { StructureEnvironment } from './StructureEnvironment';
-import { DeveloperEnvironment } from './DeveloperEnvironment';
 import { Sparkles, Bot, Layers, Terminal } from 'lucide-react';
+
+const ProfessionalEnvironment = lazy(() =>
+  import('./ProfessionalEnvironment').then((m) => ({ default: m.ProfessionalEnvironment }))
+);
+const StructureEnvironment = lazy(() =>
+  import('./StructureEnvironment').then((m) => ({ default: m.StructureEnvironment }))
+);
+const DeveloperEnvironment = lazy(() =>
+  import('./DeveloperEnvironment').then((m) => ({ default: m.DeveloperEnvironment }))
+);
 
 interface EnvironmentContainerProps {
   scrollProgress: number;
@@ -40,24 +47,26 @@ export const EnvironmentContainer: React.FC<EnvironmentContainerProps> = ({
           isReducedMotion={isReducedMotion}
         />
       )}
-      {activeMode === 'professional' && (
-        <ProfessionalEnvironment
-          scrollProgress={scrollProgress}
-          isReducedMotion={isReducedMotion}
-        />
-      )}
-      {activeMode === 'structure' && (
-        <StructureEnvironment
-          scrollProgress={scrollProgress}
-          isReducedMotion={isReducedMotion}
-        />
-      )}
-      {activeMode === 'developer' && (
-        <DeveloperEnvironment
-          scrollProgress={scrollProgress}
-          isReducedMotion={isReducedMotion}
-        />
-      )}
+      <Suspense fallback={null}>
+        {activeMode === 'professional' && (
+          <ProfessionalEnvironment
+            scrollProgress={scrollProgress}
+            isReducedMotion={isReducedMotion}
+          />
+        )}
+        {activeMode === 'structure' && (
+          <StructureEnvironment
+            scrollProgress={scrollProgress}
+            isReducedMotion={isReducedMotion}
+          />
+        )}
+        {activeMode === 'developer' && (
+          <DeveloperEnvironment
+            scrollProgress={scrollProgress}
+            isReducedMotion={isReducedMotion}
+          />
+        )}
+      </Suspense>
 
       {/* Smooth Cinematic Mode Transition Overlay */}
       {isTransitioning && (
