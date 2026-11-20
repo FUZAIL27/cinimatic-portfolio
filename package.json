@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node scripts/generate_resume.cjs",
     "build": "tsc -b && vite build",
     "generate:resume": "node scripts/generate_resume.cjs",
     "lint": "oxlint",
     "preview": "vite preview"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   },
   "dependencies": {
     "@types/canvas-confetti": "^1.9.0",
